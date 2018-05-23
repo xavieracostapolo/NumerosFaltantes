@@ -17,11 +17,14 @@ class Solution {
     // Complete the missingNumbers function below.
     static int[] missingNumbers(int[] arr, int[] brr) {
         
-        List<int> result = new List<int>();
+        //Guardar el resultado
+        List<int> result = new List<int>(); 
         
+        //Se ordenan los arrays
         Array.Sort(arr);
         Array.Sort(brr);
         
+        //Recorrer el array brr
         int ib = 0;
         
         for(int ia = 0; ia < arr.Length; ia++){
