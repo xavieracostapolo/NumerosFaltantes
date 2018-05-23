@@ -14,7 +14,14 @@ using System;
 
 class Solution {
 
-    // Complete the missingNumbers function below.
+    /// <summary>
+    /// Buscar los numeros perdidos.
+    /// </summary>
+    /// <param name="arr">Primera lista</param>
+    /// <param name="brr">Segunda lista</param>
+    /// <returns>
+    /// Array con el listado de los numeros perdidos.
+    /// </returns>
     static int[] missingNumbers(int[] arr, int[] brr) {
         
         //Guardar el resultado
@@ -22,7 +29,6 @@ class Solution {
         
         //Se ordenan los arrays
         Array.Sort(arr);
-        Array.Sort(brr);
         
         //Recorrer el array brr
         int ib = 0;
@@ -44,6 +50,7 @@ class Solution {
 
     }
 
+    //Metodo de inicio
     static void Main(string[] args) {
         TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
@@ -55,10 +62,16 @@ class Solution {
 
         int[] brr = Array.ConvertAll(Console.ReadLine().Split(' '), brrTemp => Convert.ToInt32(brrTemp))
         ;
-                
-        int[] result = missingNumbers(arr, brr);
-        textWriter.WriteLine(string.Join(" ", result));    
-               
+        
+        //Ordenar segunda lista.
+        Array.Sort(brr);
+        
+        //Configuracion Constraints
+        if((n <= m) && (n >= 1) && (m <= 200000) && (brr[0] - brr[m-1] <= 100)){
+            int[] result = missingNumbers(arr, brr);
+            textWriter.WriteLine(string.Join(" ", result));    
+        }
+            
         textWriter.Flush();
         textWriter.Close();
     }
